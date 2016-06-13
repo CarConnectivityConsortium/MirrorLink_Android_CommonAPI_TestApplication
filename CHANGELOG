@@ -1,0 +1,11 @@
+0.13
+- Fix crash when disabling drive mode in menu
+
+0.12
+
+- fixed handling diagonal knob events
+- fixed bug 1618
+- ported application to android studio (it is now using mirrorlink 
+	plugin for building + mirrorlink common api library provided
+	with plugin)
+- added possibility to play test audio in a loop

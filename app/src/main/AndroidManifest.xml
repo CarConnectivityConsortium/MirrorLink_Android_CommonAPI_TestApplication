@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright Car Connectivity Consortium
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  ~ You may decide to give the Car Connectivity Consortium input, suggestions
+  ~ or feedback of a technical nature which may be implemented on the
+  ~ Car Connectivity Consortium products (“Feedback”).
+  ~
+  ~ You agrees that any such Feedback is given on non-confidential
+  ~ basis and Licensee hereby waives any confidentiality restrictions
+  ~ for such Feedback. In addition, Licensee grants to the Car Connectivity Consortium
+  ~ and its affiliates a worldwide, non-exclusive, perpetual, irrevocable,
+  ~ sub-licensable, royalty-free right and license under Licensee’s copyrights to copy,
+  ~ reproduce, modify, create derivative works and directly or indirectly
+  ~ distribute, make available and communicate to public the Feedback
+  ~ in or in connection to any CCC products, software and/or services.
+  -->
+  <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.carconnectivity.testapp">
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="17" />
+	<uses-permission android:name="com.mirrorlink.android.service.ACCESS_PERMISSION" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.RECORD_AUDIO" />
+	
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/CCCTheme" 
+        android:name="ApplicationContext">
+        <activity
+            android:name="com.carconnectivity.testapp.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.mirrorlink.android.app.TERMINATE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.mirrorlink.android.app.LAUNCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+		<activity android:name="com.carconnectivity.testapp.Versions" android:label="Versions" />
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkClientInformation"  android:label="MirrorLink Client Information" />
+		<activity android:name="com.carconnectivity.testapp.ApplicationCertificateStatus" android:label="Application Certificate Status" />
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkConnection" android:label="MirrorLink Connection Status" />
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkAudioConnection" android:label="MirrorLink Audio Connection Status" />
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkRemoteDisplayConnection" android:label="MirrorLink Remote Display Connection Status" />
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkClientDisplayInformation" android:label="MirrorLink Client Display Information Status" />
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkPixelFormat" android:label="MirrorLink Client Pixel Format" />
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkEventConfigurationInformation" android:label="MirrorLink Event"/>
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkEventMappingInformation" android:label="MirrorLink Event Mapping"/>                
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkContextInformation" android:label="MirrorLink Context Information"/>        
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkDriveModeStatus" android:label="MirrorLink Drive Mode Status"/>     
+		<activity android:name="com.carconnectivity.testapp.utils.MirrorLinkDriveModeScreen" android:label="MirrorLink Drive Mode Status"/>     
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkApiModules" android:label="Mirror Link API Modules"/>     
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkVrtKeyboard" android:label="MirrorLink Server Virtual Keyboard Support"/>
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkNightModeStatus" android:label="Mirror Link Night Mode"/>     
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkMicrophoneStatus" android:label="Mirror Link Microphone"/>    
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkDataServices" android:label="Mirror Link Data Services"/>    
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkDataServicesDetails" android:label="Mirror Link Data Services"/>    
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkDataServicesLocationObject" android:label="Mirror Link Location Object"/>    
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkNotification"  android:label="Mirror Link Notification"/>    
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkNotificationSend" android:label="Mirror Link Send Notification"/>    
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkNotificationConfiguration" android:label="Mirror Link Notification Configuration"/>    
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkOrientation" android:label="Mirror Link Orientation"/>    
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkAudioContextInformation" android:label="Mirror Link Audio Context"/>     
+		<activity android:name="com.carconnectivity.testapp.utils.MirrorLinkFullScreenAnimation" android:label="Full Screen Animation"/>    
+		<activity android:name="com.carconnectivity.testapp.utils.MirrorLinkPartScreenAnimation" android:label="Part Screen Animation"/>  
+		<activity android:name="com.carconnectivity.testapp.utils.KnobScreen" android:label="Knob events visualiser"/>  
+		<activity android:name="com.carconnectivity.testapp.utils.MultimediaKeysScreen" android:label="Multimedia/Function Keys Screen"/>  
+		<activity android:name="com.carconnectivity.testapp.utils.AudioEcho" android:label="Audio Echo"/>  
+		<activity android:name="com.carconnectivity.testapp.utils.AudioChannels" android:label="Audio Channels"/>  
+		    </application>
+</manifest>

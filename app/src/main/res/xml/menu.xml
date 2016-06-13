@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright Car Connectivity Consortium
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  ~ You may decide to give the Car Connectivity Consortium input, suggestions
+  ~ or feedback of a technical nature which may be implemented on the
+  ~ Car Connectivity Consortium products (“Feedback”).
+  ~
+  ~ You agrees that any such Feedback is given on non-confidential
+  ~ basis and Licensee hereby waives any confidentiality restrictions
+  ~ for such Feedback. In addition, Licensee grants to the Car Connectivity Consortium
+  ~ and its affiliates a worldwide, non-exclusive, perpetual, irrevocable,
+  ~ sub-licensable, royalty-free right and license under Licensee’s copyrights to copy,
+  ~ reproduce, modify, create derivative works and directly or indirectly
+  ~ distribute, make available and communicate to public the Feedback
+  ~ in or in connection to any CCC products, software and/or services.
+  -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <Preference android:title="MirrorLink Common API Modules" android:summary="Get available common api modules">
+		<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkApiModules"/>
+	</Preference>
+	<PreferenceScreen android:title="Display settings">
+	    <Preference android:title="MirrorLink Remote Display" android:summary="Get MirrorLink Remote Display Connection Status">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkRemoteDisplayConnection"/>
+		</Preference>
+		<Preference android:title="MirrorLink Client Display Configuration" android:summary="Get MirrorLink Client Display Configuration Status">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkClientDisplayInformation"/>
+		</Preference>
+		<Preference android:title="MirrorLink Client Pixel Format" android:summary="Get MirrorLink Client supported Pixel Formats">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkPixelFormat"/>
+		</Preference>
+		
+		<Preference android:title="MirrorLink Context Information" android:summary="MirrorLink Video Context and Blocking">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkContextInformation"/>
+		</Preference>
+				
+		<Preference android:title="MirrorLink Orientation Support" android:summary="Orientation Support">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkOrientation"/>
+		</Preference>
+	
+	</PreferenceScreen>	
+	<PreferenceScreen android:title="Audio settings">
+	    <Preference android:title="MirrorLink Audio Connection" android:summary="Get MirrorLink Audio Connection Status">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkAudioConnection"/>
+		</Preference>
+		
+	    <Preference android:title="MirrorLink Audio Context/Blocking Information" android:summary="Get MirrorLink Audio Context Information">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkAudioContextInformation"/>
+		</Preference>	 
+	    
+	    
+	</PreferenceScreen>
+	<PreferenceScreen android:title="Events settings">
+	    <Preference android:title="MirrorLink Event Configuration" android:summary="Get MirrorLink Event Configuration information">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkEventConfigurationInformation"/>
+		</Preference>
+		
+		<Preference android:title="MirrorLink Event Mapping Configuration" android:summary="Get MirrorLink Event Mapping Configuration information">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkEventMappingInformation"/>
+		</Preference>	
+		<Preference android:title="MirrorLink Server Virtual Keyboard Support" android:summary="Get MirrorLink Server Virtual Keyboard Support">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkVrtKeyboard"/>
+		</Preference>
+	</PreferenceScreen>
+	<PreferenceScreen android:title="Device Status">
+		<Preference android:title="MirrorLink Drive Mode Status" android:summary="Get MirrorLink Drive Mode Status">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkDriveModeStatus"/>
+		</Preference>
+		<Preference android:title="MirrorLink Device Status Microphone" android:summary="Get MirrorLink Microphone Status">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkMicrophoneStatus"/>
+		</Preference>
+		<Preference android:title="MirrorLink Night Mode Status" android:summary="Get MirrorLink Night Mode Status">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkNightModeStatus"/>
+		</Preference>
+		
+
+		
+	</PreferenceScreen>
+
+	<Preference android:title="Versions" android:summary="Get values of MirrorLink Version and Common API Version">
+		<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.Versions"/>
+	</Preference>
+
+	<Preference android:title="MirrorLink Client Information" android:summary="Get values of MirrorLink Client Information">
+		<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkClientInformation"/>
+	</Preference>
+		<Preference android:title="Application Certificate Status" android:summary="Get values of Application Certificate Status">
+		<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.ApplicationCertificateStatus"/>
+	</Preference>
+	<Preference android:title="MirrorLink Connection Status" android:summary="Get MirrorLink Connection Status">
+		<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkConnection"/>
+	</Preference>
+
+	<Preference android:title="Data Services" android:summary="Get information about data services">
+		<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkDataServices"/>
+	</Preference>
+	
+	<PreferenceScreen android:title="Notifications">
+		<Preference android:title="MirrorLink Notifications" android:summary="Get information about notifications">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkNotification"/>
+		</Preference>
+		
+		<Preference android:title="MirrorLink Notification Configuration" android:summary="Get notification configuration">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkNotificationConfiguration"/>
+		</Preference>
+		<Preference android:title="MirrorLink Send Notification" android:summary="Send notification">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.MirrorLinkNotificationSend"/>
+		</Preference>
+	</PreferenceScreen>
+	<PreferenceScreen android:title="Utilities">
+		<Preference android:title="Full screen animation" android:summary="">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.utils.MirrorLinkFullScreenAnimation"/>
+		</Preference>
+		<Preference android:title="Part screen animation" android:summary="">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.utils.MirrorLinkPartScreenAnimation"/>
+		</Preference>
+		<Preference android:title="Knob events visualiser" android:summary="">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.utils.KnobScreen"/>
+		</Preference>
+		<Preference android:title="Multimedia/Function keys" android:summary="">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.utils.MultimediaKeysScreen"/>
+		</Preference>
+		<Preference android:title="Audio echo" android:summary="">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.utils.AudioEcho"/>
+		</Preference>
+		<Preference android:title="Audio channels" android:summary="">
+			<intent android:targetPackage="com.carconnectivity.testapp" android:targetClass="com.carconnectivity.testapp.utils.AudioChannels"/>
+		</Preference>
+	</PreferenceScreen>
+	
+
+	
+	
+	
+	
+	
+	
+</PreferenceScreen>

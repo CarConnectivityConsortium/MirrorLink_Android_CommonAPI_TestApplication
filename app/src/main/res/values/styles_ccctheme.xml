@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright Car Connectivity Consortium
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  ~ You may decide to give the Car Connectivity Consortium input, suggestions
+  ~ or feedback of a technical nature which may be implemented on the
+  ~ Car Connectivity Consortium products (“Feedback”).
+  ~
+  ~ You agrees that any such Feedback is given on non-confidential
+  ~ basis and Licensee hereby waives any confidentiality restrictions
+  ~ for such Feedback. In addition, Licensee grants to the Car Connectivity Consortium
+  ~ and its affiliates a worldwide, non-exclusive, perpetual, irrevocable,
+  ~ sub-licensable, royalty-free right and license under Licensee’s copyrights to copy,
+  ~ reproduce, modify, create derivative works and directly or indirectly
+  ~ distribute, make available and communicate to public the Feedback
+  ~ in or in connection to any CCC products, software and/or services.
+  -->
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="EditTextCCCTheme" parent="android:Widget.EditText">
+	  <item name="android:background">@drawable/ccctheme_edit_text_holo_dark</item>
+	  <item name="android:textColor">#ffffff</item>
+  </style>
+
+  <style name="AutoCompleteTextViewCCCTheme" parent="android:Widget.AutoCompleteTextView">
+      <item name="android:dropDownSelector">@drawable/ccctheme_list_selector_holo_dark</item>
+	  <item name="android:background">@drawable/ccctheme_edit_text_holo_dark</item>
+	  <item name="android:textColor">#ffffff</item>
+  </style>
+
+  <style name="CheckBoxCCCTheme" parent="android:Widget.CompoundButton.CheckBox">
+      <item name="android:button">@drawable/ccctheme_btn_check_holo_dark</item>
+  </style>
+
+  <style name="RadioButtonCCCTheme" parent="android:Widget.CompoundButton.RadioButton">
+      <item name="android:button">@drawable/ccctheme_btn_radio_holo_dark</item>
+  </style>
+
+  <style name="ButtonCCCTheme" parent="android:Widget.Button">
+	  <item name="android:background">@drawable/ccctheme_btn_default_holo_dark</item>
+	  <item name="android:minHeight">48dip</item>
+	  <item name="android:minWidth">64dip</item>
+	  <item name="android:textColor">#ffffff</item>
+  </style>
+
+  <style name="ImageButtonCCCTheme" parent="android:Widget.ImageButton">
+	  <item name="android:background">@drawable/ccctheme_btn_default_holo_dark</item>
+  </style>
+
+  <style name="SpinnerCCCTheme" parent="android:Widget.Spinner">
+      <item name="android:background">@drawable/ccctheme_spinner_background_holo_dark</item>
+      <item name="android:dropDownSelector">@drawable/ccctheme_list_selector_holo_dark</item>
+  </style>
+
+  <style name="SpinnerDropDownItemCCCTheme" parent="android:Widget.DropDownItem.Spinner">
+      <item name="android:checkMark">@drawable/ccctheme_btn_radio_holo_dark</item>
+  </style>
+  <style name="TabCCCTheme">
+      <item name="android:gravity">center_horizontal</item>
+      <item name="android:paddingLeft">16dip</item>
+      <item name="android:paddingRight">16dip</item>
+      <item name="android:background">@drawable/ccctheme_tab_indicator_holo</item>
+      <item name="android:layout_width">0dip</item>
+      <item name="android:layout_weight">1</item>
+      <item name="android:minWidth">80dip</item>
+  </style>
+
+  <style name="TabTextCCCTheme">
+	  <item name="android:textColor">#ffffff</item>
+      <item name="android:textSize">12sp</item>
+      <item name="android:textStyle">bold</item>
+      <!-- v14 <item name="android:textAllCaps">true</item> -->
+      <item name="android:ellipsize">marquee</item>
+      <item name="android:maxLines">2</item>
+      <item name="android:maxWidth">180dip</item>
+  </style>
+
+  <style name="ProgressBarCCCTheme" parent="android:Widget.ProgressBar.Horizontal">
+      <item name="android:progressDrawable">@drawable/ccctheme_progress_horizontal_holo_dark</item>
+      <item name="android:indeterminateDrawable">@drawable/ccctheme_progress_indeterminate_horizontal_holo_dark</item>
+      <item name="android:minHeight">16dip</item>
+      <item name="android:maxHeight">16dip</item>
+  </style>
+
+  <style name="SeekBarCCCTheme" parent="android:Widget.SeekBar">
+      <item name="android:progressDrawable">@drawable/ccctheme_scrubber_progress_horizontal_holo_dark</item>
+      <item name="android:indeterminateDrawable">@drawable/ccctheme_scrubber_progress_horizontal_holo_dark</item>
+      <item name="android:minHeight">13dip</item>
+      <item name="android:maxHeight">13dip</item>
+      <item name="android:thumb">@drawable/ccctheme_scrubber_control_selector_holo_dark</item>
+      <item name="android:thumbOffset">16dip</item>
+      <item name="android:paddingLeft">16dip</item>
+      <item name="android:paddingRight">16dip</item>
+  </style>
+
+  <style name="RatingBarCCCTheme" parent="android:Widget.RatingBar">
+      <item name="android:progressDrawable">@drawable/ccctheme_ratingbar_full_holo_dark</item>
+      <item name="android:indeterminateDrawable">@drawable/ccctheme_ratingbar_full_holo_dark</item>
+  </style>
+
+  <style name="RatingBarBigCCCTheme">
+      <item name="android:progressDrawable">@drawable/ccctheme_ratingbar_holo_dark</item>
+      <item name="android:indeterminateDrawable">@drawable/ccctheme_ratingbar_holo_dark</item>
+      <item name="android:minHeight">35dip</item>
+      <item name="android:maxHeight">35dip</item>
+  </style>
+
+  <style name="RatingBarSmallCCCTheme">
+      <item name="android:progressDrawable">@drawable/ccctheme_ratingbar_small_holo_dark</item>
+      <item name="android:indeterminateDrawable">@drawable/ccctheme_ratingbar_small_holo_dark</item>
+      <item name="android:minHeight">16dip</item>
+      <item name="android:maxHeight">16dip</item>
+  </style>
+
+  <style name="ToggleCCCTheme" parent="android:Widget.Button.Toggle">
+      <item name="android:background">@drawable/ccctheme_btn_toggle_holo_dark</item>
+      <item name="android:minHeight">48dip</item>
+	  <item name="android:textColor">#ffffff</item>
+  </style>
+
+  <style name="ListViewCCCTheme" parent="android:Widget.ListView">
+      <item name="android:listSelector">@drawable/ccctheme_list_selector_holo_dark</item>
+  </style>
+
+  <style name="ListViewCCCTheme.White" parent="android:Widget.ListView.White">
+      <item name="android:listSelector">@drawable/ccctheme_list_selector_holo_dark</item>
+  </style>
+
+  <style name="SpinnerItemCCCTheme" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
+      <item name="android:textColor">#ffffff</item>
+  </style>
+
+</resources>
