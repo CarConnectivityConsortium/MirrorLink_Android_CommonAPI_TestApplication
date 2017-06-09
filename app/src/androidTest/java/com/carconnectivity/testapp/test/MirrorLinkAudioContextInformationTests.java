@@ -25,7 +25,8 @@
  * reproduce, modify, create derivative works and directly or indirectly
  * distribute, make available and communicate to public the Feedback
  * in or in connection to any CCC products, software and/or services.
- */package com.carconnectivity.testapp.test;
+ */
+package com.carconnectivity.testapp.test;
 
 import android.media.MediaPlayer;
 import android.widget.Button;

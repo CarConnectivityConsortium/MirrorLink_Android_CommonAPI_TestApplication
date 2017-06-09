@@ -26,6 +26,7 @@
  * distribute, make available and communicate to public the Feedback
  * in or in connection to any CCC products, software and/or services.
  */
+import java.sql.DriverManager
 
 apply plugin: 'com.android.application'
 
@@ -63,6 +64,7 @@ def generateSelfSignedCertificate(version){
             args "-jar", certGeneratorLocation, "generate-certificate", apkLocation,
                     android.defaultConfig.applicationId, android.defaultConfig.versionCode,
                     certXmlLocation, certificateDestination, certificateIssuer, developerId
+            println(args)
         }
         if (System.properties['os.name'].toLowerCase().contains("windows")) {
             exec {
@@ -83,31 +85,44 @@ def generateSelfSignedCertificate(version){
 
 android {
     compileSdkVersion 15
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "com.carconnectivity.testapp"
         minSdkVersion 15
         targetSdkVersion 17
-        versionCode 13
-        versionName "0.13"
+        versionCode 14
+        versionName "0.14"
         testApplicationId "com.carconnectivity.testapp.test"
     }
 
     signingConfigs {
         config {
             keyAlias 'release'
-            keyPassword 'xxx'
+            keyPassword '!qaz2wsx'
             storeFile file('../../Keys/productionkeys')
-            storePassword 'xxx'
+            storePassword '!qaz2wsx'
+        }
+    }
+    tasks.whenTaskAdded { task ->
+        if (task.name == 'assembleDebug') {
+            task.dependsOn 'generateSelfSignedCertificateForDebug'
+        }
+    }
+    tasks.whenTaskAdded { task ->
+        if (task.name == 'assembleRelease') {
+            task.dependsOn 'generateSelfSignedCertificateForRelase'
         }
     }
 
-    assembleDebug.doLast {
+
+    task generateSelfSignedCertificateForDebug << {
         generateSelfSignedCertificate("debug")
     }
-    assembleRelease.doLast{
+
+    task generateSelfSignedCertificateForRelase << {
         generateSelfSignedCertificate("release")
+
     }
 
 

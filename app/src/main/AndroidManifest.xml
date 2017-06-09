@@ -27,7 +27,7 @@
   ~ distribute, make available and communicate to public the Feedback
   ~ in or in connection to any CCC products, software and/or services.
   -->
-  <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.carconnectivity.testapp">
 
     <uses-sdk

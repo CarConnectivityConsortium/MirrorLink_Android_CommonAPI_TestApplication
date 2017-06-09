@@ -27,7 +27,7 @@
   ~ distribute, make available and communicate to public the Feedback
   ~ in or in connection to any CCC products, software and/or services.
   -->
-  <module external.linked.project.id="MirrorLinkTestAppllication" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+<module external.linked.project.id="MirrorLinkTestAppllication" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="java-gradle" name="Java-Gradle">
       <configuration>
