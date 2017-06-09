@@ -46,6 +46,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.carconnectivity.testapp.views.BooloeanInputView;
 import com.carconnectivity.testapp.views.HeaderView;
@@ -143,6 +144,7 @@ public class MirrorLinkContextInformation extends BaseActivity {
 		mContextManager = getMirrorLinkApplicationContext().registerContextManager(this, mContextListener);
 		if (mContextManager == null)
 		{
+			Toast.makeText(this, "Unable to get context manager.", Toast.LENGTH_LONG).show();
 			finish();
 		}
 		super.onResume();

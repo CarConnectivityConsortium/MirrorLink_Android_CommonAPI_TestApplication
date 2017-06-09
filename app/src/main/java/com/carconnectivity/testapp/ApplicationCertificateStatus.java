@@ -75,6 +75,7 @@ public class ApplicationCertificateStatus extends BaseActivity {
 		certificationManager = getMirrorLinkApplicationContext().registerCertificationManager(this, null);
 		if (certificationManager== null)
 		{
+			Toast.makeText(this, "Unable to get certification manager.", Toast.LENGTH_LONG).show();
 			finish();
 		}
 		super.onResume();

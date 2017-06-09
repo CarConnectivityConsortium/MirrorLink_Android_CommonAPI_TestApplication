@@ -35,6 +35,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.carconnectivity.testapp.views.HeaderView;
 import com.carconnectivity.testapp.views.LastExecutedViewMultiline;
@@ -55,6 +56,7 @@ public class MirrorLinkNightModeStatus extends BaseActivity {
 		mDeviceStatusManager = getMirrorLinkApplicationContext().registerDeviceStatusManager(this, mDeviceStatusListener);
 		if (mDeviceStatusManager== null)
 		{
+			Toast.makeText(this, "Unable to get device status manager.", Toast.LENGTH_LONG).show();
 			finish();
 		}
 		super.onResume();

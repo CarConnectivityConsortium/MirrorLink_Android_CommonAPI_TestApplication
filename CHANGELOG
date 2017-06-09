@@ -1,3 +1,15 @@
+0.14
+ - Updated AIDL files to latest version 1.1.2
+ - Fixed crash when trying to use application on non MirrorLink Phone
+ - Fixed object id in NMEA description view
+ - Fixed displaing supported message types in NMEA Description view
+ - Added subscribe/unsubscribe buttons in Location Data Service view
+ - Added toast messages when CAPI managers are unavailable
+ - Fixed 1823
+ - Added missing categories in Audio Context view
+ - Fixed possible playback issues in Audio Context view
+ - Added new audio sample (longer) in Audio Context view
+
 0.13
 - Fix crash when disabling drive mode in menu
 

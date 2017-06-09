@@ -41,6 +41,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.RemoteException;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -86,7 +87,7 @@ public class MirrorLinkDataServicesNmeaDescription extends Dialog{
 			@Override
 			public void onClick(View v) {
 				try {
-					dataServicesManager.getObject(mDataServiceId, Defs.GPSService.NMEA_OBJECT_UID);
+					dataServicesManager.getObject(mDataServiceId, Defs.GPSService.NMEADESCRIPTION_OBJECT_UID);
 				} catch (RemoteException e) {
 					e.printStackTrace();
 				}
@@ -97,7 +98,7 @@ public class MirrorLinkDataServicesNmeaDescription extends Dialog{
 			@Override
 			public void onClick(View v) {
 				try {
-					dataServicesManager.subscribeObject(mDataServiceId, Defs.GPSService.NMEA_OBJECT_UID);
+					dataServicesManager.subscribeObject(mDataServiceId, Defs.GPSService.NMEADESCRIPTION_OBJECT_UID);
 				} catch (RemoteException e) {
 					e.printStackTrace();
 				}
@@ -110,7 +111,7 @@ public class MirrorLinkDataServicesNmeaDescription extends Dialog{
 			@Override
 			public void onClick(View v) {
 				try {
-					dataServicesManager.unsubscribeObject(mDataServiceId, Defs.GPSService.NMEA_OBJECT_UID);
+					dataServicesManager.unsubscribeObject(mDataServiceId, Defs.GPSService.NMEADESCRIPTION_OBJECT_UID);
 				} catch (RemoteException e) {
 					e.printStackTrace();
 				}
@@ -159,14 +160,14 @@ public class MirrorLinkDataServicesNmeaDescription extends Dialog{
 							}
 							
 							int nmea_desc = data.getInt(Defs.DataObjectKeys.VALUE);
-							
-							nema_description_gga.setChecked((nmea_desc & (1<<1)) == (1<<1));
-							nema_description_gll.setChecked((nmea_desc & (1<<2)) == (1<<2));
-							nema_description_gsa.setChecked((nmea_desc & (1<<3)) == (1<<3));
-							nema_description_gsv.setChecked((nmea_desc & (1<<4)) == (1<<4));
-							nema_description_rmc.setChecked((nmea_desc & (1<<5)) == (1<<5));
-							nema_description_vtg.setChecked((nmea_desc & (1<<6)) == (1<<6));
-							nema_description_gst.setChecked((nmea_desc & (1<<7)) == (1<<7));
+
+							nema_description_gga.setChecked((nmea_desc & (1 << 0)) == (1 << 0));
+							nema_description_gll.setChecked((nmea_desc & (1 << 1)) == (1 << 1));
+							nema_description_gsa.setChecked((nmea_desc & (1 << 2)) == (1 << 2));
+							nema_description_gsv.setChecked((nmea_desc & (1 << 3)) == (1 << 3));
+							nema_description_rmc.setChecked((nmea_desc & (1 << 4)) == (1 << 4));
+							nema_description_vtg.setChecked((nmea_desc & (1 << 5)) == (1 << 5));
+							nema_description_gst.setChecked((nmea_desc & (1 << 6)) == (1 << 6));
 
 						}
 					}
@@ -195,23 +196,12 @@ public class MirrorLinkDataServicesNmeaDescription extends Dialog{
 				{
 					cancel();
 				}
-
-				try {
-					dataServicesManager.registerToService(mDataServiceId, mDataMajorVersion, mDataMinorVersion);
-				} catch (RemoteException e) {
-					e.printStackTrace();
-				}
 			}
 		});
 	}
 	@Override
 	protected void onStop()
 	{
-		try {
-			dataServicesManager.unregisterFromService(mDataServiceId);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 		mAppContext.unregisterDataServicesManager(this, mDataServicesListener);
 		super.onStop();
 	}

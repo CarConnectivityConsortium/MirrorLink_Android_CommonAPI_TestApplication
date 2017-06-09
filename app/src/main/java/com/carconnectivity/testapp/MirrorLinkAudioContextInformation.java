@@ -31,6 +31,7 @@ package com.carconnectivity.testapp;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -70,9 +71,9 @@ public class MirrorLinkAudioContextInformation extends BaseActivity {
 	BooloeanInputView resultResponse = null;
 	
 	Button clearCallbackList = null;
-	
-	
-	HashMap<String, Integer> contentCategories = new HashMap<String, Integer>();
+
+
+	LinkedHashMap<String, Integer> contentCategories = new LinkedHashMap<String, Integer>();
 
 	Button play = null;
 	Button stop = null;
@@ -87,6 +88,7 @@ public class MirrorLinkAudioContextInformation extends BaseActivity {
 
 		if (contextManager == null)
 		{
+			Toast.makeText(this, "Unable to get context manager.", Toast.LENGTH_LONG).show();
 			finish();
 		}
 		super.onResume();
@@ -136,13 +138,17 @@ public class MirrorLinkAudioContextInformation extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		
 		
-		createContentView();
-		
+
+		contentCategories.put("GENERAL MEDIA", 0x00030000);
+		contentCategories.put("NAVIGATION", 0x00050000);
+		contentCategories.put("ANNOUNCEMENTS", 0x00080000);
+		contentCategories.put("TELEPHONE", 0xF0000020);
+		contentCategories.put("SPEECH", 0xF0000010);
+
 		contentCategories.put("UNKNOWN", 0x00000000);
 		contentCategories.put("PHONE", 0x00020000);
 		contentCategories.put("PHONE_CONTACT_LIST", 0x00020001);
 		contentCategories.put("PHONE_CALL_LOG", 0x00020002);
-		contentCategories.put("MEDIA", 0x00030000);
 		contentCategories.put("MEDIA_MUSIC", 0x00030001);
 		contentCategories.put("MEDIA_VIDEO", 0x00030002);
 		contentCategories.put("MEDIA_GAMING", 0x00030003);
@@ -151,13 +157,11 @@ public class MirrorLinkAudioContextInformation extends BaseActivity {
 		contentCategories.put("MESSAGING_SMS", 0x00040001);
 		contentCategories.put("MESSAGING_MMS", 0x00040002);
 		contentCategories.put("MESSAGING_EMAIL", 0x00040003);
-		contentCategories.put("NAVIGATION", 0x00050000);
 		contentCategories.put("BROWSER", 0x00060000);
 		contentCategories.put("BROWSER_APPLICATION_STORE", 0x00060001);
 		contentCategories.put("PRODUCTIVITY", 0x00070000);
 		contentCategories.put("PRODUCTIVITY_DOCUMENT_VIEWER", 0x00070001);
 		contentCategories.put("PRODUCTIVITY_DOCUMENT_EDITOR", 0x00070002);
-		contentCategories.put("INFORMATION", 0x00080000);
 		contentCategories.put("INFORMATION_NEWS", 0x00080001);
 		contentCategories.put("INFORMATION_WEATHER", 0x00080002);
 		contentCategories.put("INFORMATION_STOCKS", 0x00080003);
@@ -168,19 +172,15 @@ public class MirrorLinkAudioContextInformation extends BaseActivity {
 		contentCategories.put("PIM", 0x000a0000);
 		contentCategories.put("PIM_CALENDAR", 0x000a0001);
 		contentCategories.put("PIM_NOTES", 0x000a0002);
+		createContentView();
 
-		
-		
-		mMediaPlayer = new MediaPlayer();
+		mMediaPlayer = ((ApplicationContext)getMirrorLinkApplicationContext()).getMediaPlayer();
 	}
 	
 	
 	@Override 
 	public void onDestroy()
 	{
-		mMediaPlayer.stop();
-		mMediaPlayer.reset();
-		
 		super.onDestroy();
 	}
 	
@@ -221,7 +221,8 @@ public class MirrorLinkAudioContextInformation extends BaseActivity {
 
 		
 		layout.addView(new HeaderView(this,"Audio test file"));
-		
+		layout.addView(new HeaderView(this,"The Elevator Bossa Nova- Bensound.com http://www.bensound.com/royalty-free-music/2"));
+
 		
 		play = new Button(this);
 		play.setText("Play");
@@ -234,9 +235,8 @@ public class MirrorLinkAudioContextInformation extends BaseActivity {
 					AssetFileDescriptor audioFile;
 					
 					try {
-						
-						audioFile = getAssets().openFd("audio_data_pt_99.mp3");
-						mMediaPlayer.setDataSource(audioFile.getFileDescriptor());
+						audioFile = getAssets().openFd("bensound-theelevatorbossanova.mp3");
+						mMediaPlayer.setDataSource(audioFile.getFileDescriptor(), audioFile.getStartOffset(), audioFile.getLength());
 						mMediaPlayer.prepare();
 					} catch (IllegalArgumentException e) {
 						e.printStackTrace();

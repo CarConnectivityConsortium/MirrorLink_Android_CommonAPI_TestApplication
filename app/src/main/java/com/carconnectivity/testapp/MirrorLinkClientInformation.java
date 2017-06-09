@@ -130,7 +130,7 @@ public class MirrorLinkClientInformation extends BaseActivity {
 		}
 		else
 		{
-			Toast.makeText(this, "Unable to get display info manager.", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Unable to get device info manager.", Toast.LENGTH_LONG).show();
 			finish();
 		}
 	}

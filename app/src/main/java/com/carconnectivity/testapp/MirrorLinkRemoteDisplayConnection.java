@@ -60,6 +60,7 @@ public class MirrorLinkRemoteDisplayConnection extends BaseActivity {
 
 		if (getMirrorLinkApplicationContext().getConnectionManager()== null)
 		{
+			Toast.makeText(this, "Unable to get connection manager.", Toast.LENGTH_LONG).show();
 			finish();
 		}
 		super.onResume();

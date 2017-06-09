@@ -29,11 +29,13 @@
 package com.carconnectivity.testapp;
 
 import android.os.RemoteException;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.carconnectivity.testapp.views.HeaderView;
 import com.carconnectivity.testapp.views.LastExecutedViewMultiline;
@@ -61,8 +63,19 @@ public class MirrorLinkDriveModeStatus extends BaseActivity {
 		mDeviceStatusManager = getMirrorLinkApplicationContext().registerDeviceStatusManager(this, mDeviceStatusListener);
 		if (mDeviceStatusManager == null)
 		{
+			Toast.makeText(this, "Unable to get device status manager.", Toast.LENGTH_LONG).show();
 			finish();
 		}
+
+		try {
+			boolean isInDriveMode = mDeviceStatusManager.isInDriveMode();
+			driveModeEnabled.setValue(isInDriveMode);
+			Log.d("MLDriveModeStatus", "Invoked isInDriveMode, result=" + isInDriveMode);
+		} catch (RemoteException e)
+		{
+			Log.e("MLDriveModeStatus", "Could not invoke isInDriveMode");
+		}
+
 		super.onResume();
 	}
 	@Override

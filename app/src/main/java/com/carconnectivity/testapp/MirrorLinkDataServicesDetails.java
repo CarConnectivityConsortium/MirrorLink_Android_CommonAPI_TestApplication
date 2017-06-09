@@ -54,7 +54,10 @@ public class MirrorLinkDataServicesDetails extends BaseActivity {
 	Integer mDataMinorVersion = 0;
 	Integer mDataMajorVersion = 0;
 	Integer mDataServiceId = 0;
-	
+
+	SuccesView registerSucceed = null;
+	TextViewString registerSuccessServiceID = null;
+
 	Button subscribeButton = null;	
 	Button unsubscribeButton = null;	
 	SuccesView callbackFired = null;
@@ -145,11 +148,15 @@ public class MirrorLinkDataServicesDetails extends BaseActivity {
 		}
 		
 		@Override
-		public void onRegisterForService(int serviceId, boolean success) throws RemoteException {
+		public void onRegisterForService(final int serviceId, final boolean success) throws RemoteException {
 			runOnUiThread(new Runnable() {
 				public void run() {
 					callbackFired.setValue(true);
 					callbackFiredList.setNow();
+
+					registerSucceed.setValue(success);
+					registerSuccessServiceID.setValue("0x"+String.format("%08x", serviceId).toUpperCase());
+
 				}
 			});
 		}
@@ -209,7 +216,15 @@ public class MirrorLinkDataServicesDetails extends BaseActivity {
 		layout.addView(unsubscribeButton);
 		
 		
-		layout.addView(new HeaderView(this,"MirrorLink registration callbacks"));
+		layout.addView(new HeaderView(this, "MirrorLink registration callbacks"));
+
+		registerSucceed = new SuccesView(this, "Register succeed", false);
+		layout.addView(registerSucceed);
+
+		registerSuccessServiceID = new TextViewString(this, "Registered service Id","n/a");
+		layout.addView(registerSuccessServiceID);
+
+
 		callbackFired = new SuccesView(this, "Callback fired", false);
 		layout.addView(callbackFired);
 		callbackFiredList = new LastExecutedViewMultiline(this);
@@ -223,6 +238,8 @@ public class MirrorLinkDataServicesDetails extends BaseActivity {
 			public void onClick(View v) {
 				callbackFiredList.clear();
 				callbackFired.setValue(false);
+				registerSucceed.setValue(false);
+				registerSuccessServiceID.setValue("n/a");
 			}
 		});
 		layout.addView(clearCallbackList);

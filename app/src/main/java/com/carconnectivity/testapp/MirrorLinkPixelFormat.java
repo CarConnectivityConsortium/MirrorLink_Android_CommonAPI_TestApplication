@@ -36,6 +36,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.carconnectivity.testapp.views.HeaderView;
 import com.carconnectivity.testapp.views.LastExecutedViewMultiline;
@@ -64,6 +65,7 @@ public class MirrorLinkPixelFormat extends BaseActivity {
 		mDisplayManager = getMirrorLinkApplicationContext().registerDisplayManager(this, mDisplayListener);
 		if (mDisplayManager== null)
 		{
+			Toast.makeText(this, "Unable to get display manager.", Toast.LENGTH_LONG).show();
 			finish();
 		}
 		super.onResume();

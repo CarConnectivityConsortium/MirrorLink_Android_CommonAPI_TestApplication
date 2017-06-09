@@ -73,7 +73,11 @@ public class MirrorLinkDataServicesLocationObject extends Dialog {
 	Context mContext = null;
 	MirrorLinkApplicationContext mAppContext = null;
 	IDataServicesManager dataServicesManager = null;
-	
+
+	public MirrorLinkDataServicesLocationObject(){
+		super(null);
+	}
+
 	protected MirrorLinkDataServicesLocationObject(Context context, MirrorLinkApplicationContext appContext, int dataMinorVersion, int dataMajorVersion, int dataServiceId) {
 		super(context);
 		this.setTitle("Location");
@@ -95,21 +99,11 @@ public class MirrorLinkDataServicesLocationObject extends Dialog {
 		{
 			cancel();
 		}
-		try {
-			dataServicesManager.registerToService(mDataServiceId,mDataMajorVersion,mDataMinorVersion);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-
 	}
 	@Override
 	protected void onStop()
 	{
-		try {
-			dataServicesManager.unregisterFromService(mDataServiceId);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+
 		mAppContext.unregisterDataServicesManager(this, mDataServicesListener);
 		super.onStop();
 	}
@@ -216,8 +210,36 @@ public class MirrorLinkDataServicesLocationObject extends Dialog {
 		layout.addView(cHeading);
 		
 		cSpeed = new DoubleInputView(mContext,"Speed"); 
-		layout.addView(cSpeed);	
-		
+		layout.addView(cSpeed);
+
+		Button subscribeObject = new Button(mContext);
+		subscribeObject.setText("Subscribe object");
+		subscribeObject.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				try {
+					dataServicesManager.subscribeObject(mDataServiceId, Defs.LocationService.LOCATION_OBJECT_UID);
+				} catch (RemoteException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		layout.addView(subscribeObject);
+
+		Button unsubscribeObject = new Button(mContext);
+		unsubscribeObject.setText("Unsubscribe object");
+		unsubscribeObject.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				try {
+					dataServicesManager.unsubscribeObject(mDataServiceId, Defs.LocationService.LOCATION_OBJECT_UID);
+				} catch (RemoteException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		layout.addView(unsubscribeObject);
+
 		Button setObject = new Button(mContext);
 		setObject.setText("Set location object");
 		

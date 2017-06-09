@@ -28,8 +28,15 @@
  */
 package com.carconnectivity.testapp;
 
+import android.media.MediaPlayer;
+
 import com.mirrorlink.lib.MirrorLinkApplicationContext;
 
 public class ApplicationContext extends com.mirrorlink.lib.MirrorLinkApplicationContext {
 
+    MediaPlayer mMediaPlayer = new MediaPlayer();
+
+    public MediaPlayer getMediaPlayer() {
+        return mMediaPlayer;
+    }
 }

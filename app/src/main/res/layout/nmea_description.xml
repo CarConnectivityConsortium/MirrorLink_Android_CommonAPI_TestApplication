@@ -85,11 +85,18 @@
         android:text="GLL" />
 
     <RadioButton
+        android:id="@+id/nema_description_gsa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nema_description_rmc"
+        android:layout_below="@+id/nema_description_gll"
+        android:text="GSA" />
+    <RadioButton
         android:id="@+id/nema_description_gsv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/nema_description_gll"
+        android:layout_below="@+id/nema_description_gsa"
         android:text="GSV" />
 
     <RadioButton
@@ -101,19 +108,11 @@
         android:text="RMC" />
 
     <RadioButton
-        android:id="@+id/nema_description_gsa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/nema_description_rmc"
-        android:layout_below="@+id/nema_description_rmc"
-        android:text="GSA" />
-
-    <RadioButton
         android:id="@+id/nema_description_vtg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/nema_description_gsa"
-        android:layout_below="@+id/nema_description_gsa"
+        android:layout_below="@+id/nema_description_rmc"
         android:text="VTG" />
 
     <RadioButton

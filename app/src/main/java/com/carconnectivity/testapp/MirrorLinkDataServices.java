@@ -47,6 +47,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.carconnectivity.testapp.views.HeaderView;
 import com.carconnectivity.testapp.views.LastExecutedViewMultiline;
@@ -74,6 +75,7 @@ public class MirrorLinkDataServices extends BaseActivity {
         dataServicesManager = getMirrorLinkApplicationContext().registerDataServicesManager(this,mDataServicesListener);
         if (dataServicesManager == null)
         {
+			Toast.makeText(this, "Unable to get data services manager.", Toast.LENGTH_LONG).show();
             finish();
         }
         updateDataServices();

@@ -36,6 +36,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.carconnectivity.testapp.views.HeaderView;
 import com.carconnectivity.testapp.views.LastExecutedView;
@@ -65,6 +66,7 @@ public class Versions extends BaseActivity {
 		deviceInfoManager = getMirrorLinkApplicationContext().registerDeviceInfoManager(this, mDeviceInfoListener);
 		if (deviceInfoManager == null)
 		{
+			Toast.makeText(this, "Unable to get device info manager.", Toast.LENGTH_LONG).show();
 			finish();
 		}
 		getApiVersion();

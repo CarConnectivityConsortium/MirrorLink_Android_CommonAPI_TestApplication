@@ -89,6 +89,7 @@ public class MirrorLinkNotificationSend extends BaseActivity {
 
 		if (notificationManager == null)
 		{
+			Toast.makeText(this, "Unable to get notification manager.", Toast.LENGTH_LONG).show();
 			finish();
 		}
 		super.onResume();
