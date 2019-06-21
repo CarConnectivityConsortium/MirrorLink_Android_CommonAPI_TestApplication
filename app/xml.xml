@@ -42,7 +42,7 @@
          <appCategory>0xFFFEFFFF</appCategory>
       </appInfo>
       <displayInfo>
-         <contentCategory>0x00000020</contentCategory>
+         <contentCategory>0x00010020</contentCategory>
          <orientation>both</orientation>
       </displayInfo>
       <audioInfo>
