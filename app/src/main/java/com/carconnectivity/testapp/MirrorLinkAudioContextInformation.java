@@ -264,6 +264,7 @@ public class MirrorLinkAudioContextInformation extends BaseActivity {
 					mMediaPlayer.reset();
 				}
 
+				resetAudioContext();
 			}
 		});
 		layout.addView(stop);
@@ -346,16 +347,7 @@ public class MirrorLinkAudioContextInformation extends BaseActivity {
 			
 			@Override
 			public void onClick(View v) {
-				try {
-					//Miscellaneous content
-					int[] audioCategory = {0};
-					
-					if (contextManager  != null)
-						contextManager.setAudioContextInformation(false, audioCategory,false);
-					
-				} catch (RemoteException e) {
-					e.printStackTrace();
-				}
+				resetAudioContext();
 			}
 		});
 		layout.addView(reset);
@@ -397,5 +389,21 @@ public class MirrorLinkAudioContextInformation extends BaseActivity {
 		return scrollView;
 	}
 
+	private void resetAudioContext() {
+
+		try {
+			//Miscellaneous content
+			final int[] audioCategory = {0};
+
+			if (contextManager  != null) {
+				contextManager.setAudioContextInformation(
+						false,
+						audioCategory,
+						false);
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
