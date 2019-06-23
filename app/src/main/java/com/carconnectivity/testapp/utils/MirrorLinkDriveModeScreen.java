@@ -73,13 +73,13 @@ public class MirrorLinkDriveModeScreen extends BaseActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.drive_mode_screen);
+
+		getMirrorLinkApplicationContext().registerDeviceStatusManager(this, mDeviceStatusListener);
 	}
 	
 	@Override
 	protected void onResume() {
 		super.onResume();
-		
-		getMirrorLinkApplicationContext().registerDeviceStatusManager(this, mDeviceStatusListener);
 	}
 	
 	@Override
@@ -87,13 +87,14 @@ public class MirrorLinkDriveModeScreen extends BaseActivity {
 		super.onPause();
 		AudioManager am = (AudioManager)getBaseContext().getSystemService(Context.AUDIO_SERVICE);
 		am.setRingerMode(mLastRingerMode);
-		
-		getMirrorLinkApplicationContext().unregisterDeviceStatusManager(this, mDeviceStatusListener);
 	}
 
 
 	@Override
 	protected void onDestroy() {
+
+		getMirrorLinkApplicationContext().unregisterDeviceStatusManager(this, mDeviceStatusListener);
+
 		super.onDestroy();
 	}
 
