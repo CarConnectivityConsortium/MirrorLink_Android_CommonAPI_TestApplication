@@ -84,13 +84,13 @@ def generateSelfSignedCertificate(version){
 
 
 android {
-    compileSdkVersion 15
+    compileSdkVersion 16
     buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "com.carconnectivity.testapp"
-        minSdkVersion 15
-        targetSdkVersion 17
+        minSdkVersion 16
+        targetSdkVersion 28
         versionCode 14
         versionName "0.14"
         testApplicationId "com.carconnectivity.testapp.test"
