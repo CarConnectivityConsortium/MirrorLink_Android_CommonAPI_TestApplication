@@ -34,6 +34,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.mirrorlink.android.commonapi.Defs;
+
 import com.carconnectivity.testapp.dummy.DriverModeScrewdriver;
 
 public class MainActivity extends Activity {
@@ -45,6 +47,15 @@ public class MainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		Log.v(LOG_TAG, "onCreate");
 		super.onCreate(savedInstanceState);
+
+		final Intent intent = getIntent();
+		if (intent != null) {
+			final String action = intent.getAction();
+			if (Defs.Intents.TERMINATE_MIRRORLINK_APP.equals(action)) {
+				finishAffinity();
+				return;
+			}
+		}
 
 	    getFragmentManager().beginTransaction().replace(android.R.id.content, new MenuFragment()).commit();
 	}
