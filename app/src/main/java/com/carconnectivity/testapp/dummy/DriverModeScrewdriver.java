@@ -33,21 +33,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.os.RemoteException;
+import android.util.Log;
 
 import com.carconnectivity.testapp.ApplicationContext;
 import com.carconnectivity.testapp.utils.MirrorLinkDriveModeScreen;
 import com.mirrorlink.android.commonapi.IDeviceStatusListener;
+import com.mirrorlink.android.commonapi.IDeviceStatusManager;
 import com.mirrorlink.lib.MirrorLinkApplicationContext;
 import com.mirrorlink.lib.ServiceReadyCallback;
 
 public class DriverModeScrewdriver {
+	private static String TAG = DriverModeScrewdriver.class.getCanonicalName();
 
 	private Activity mContext;
 
 	private int mStoredRingerMode = AudioManager.RINGER_MODE_NORMAL;
 
 	static final int DRIVE_MODE_REQUEST = 1;
-	private MirrorLinkApplicationContext mMirrorLinkApplicationContext = null;
+	private ApplicationContext mMirrorLinkApplicationContext = null;
 
 	public DriverModeScrewdriver(Activity activity) {
 		this.mContext = activity;
@@ -55,8 +58,18 @@ public class DriverModeScrewdriver {
 		ApplicationContext.getContext(new ServiceReadyCallback() {
 			@Override
 			public void connected(MirrorLinkApplicationContext mirrorLinkApplicationContext) {
-				mMirrorLinkApplicationContext = mirrorLinkApplicationContext;
-				mirrorLinkApplicationContext.registerDeviceStatusManager(this, mDeviceStatusListener);
+				mMirrorLinkApplicationContext = (ApplicationContext)mirrorLinkApplicationContext;
+				final IDeviceStatusManager deviceStatusManager
+						= mMirrorLinkApplicationContext.registerDeviceStatusManager(
+								this,
+								mDeviceStatusListener);
+
+				try {
+					final boolean isInDriveMode = deviceStatusManager.isInDriveMode();
+					setDriveMode(isInDriveMode);
+				} catch (final RemoteException e) {
+					Log.e(TAG, "Could not invoke isInDriveMode");
+				}
 			}
 		});
 	}
@@ -79,13 +92,7 @@ public class DriverModeScrewdriver {
 		
 		@Override
 		public void onDriveModeChange(final boolean driveMode) throws RemoteException {
-			if (driveMode) {
-				Intent intent = new Intent(mContext.getApplicationContext(), MirrorLinkDriveModeScreen.class);
-				mStoredRingerMode = getRingerMode();
-				setRingMode(AudioManager.RINGER_MODE_SILENT);
-			    mContext.startActivityForResult(intent, DRIVE_MODE_REQUEST);
-			}
-			
+			setDriveMode(driveMode);
 		}
 	};
 	
@@ -103,6 +110,18 @@ public class DriverModeScrewdriver {
 	private void setRingMode(int ringer) {
 		AudioManager am = (AudioManager)(mContext.getSystemService(Context.AUDIO_SERVICE));
 		am.setRingerMode(ringer);
-	}	
-	
+	}
+
+	private void setDriveMode(final boolean driveMode) {
+		if (driveMode) {
+			final Intent intent = new Intent(
+					mContext.getApplicationContext(),
+					MirrorLinkDriveModeScreen.class);
+			intent.addFlags(
+					Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			mStoredRingerMode = getRingerMode();
+			setRingMode(AudioManager.RINGER_MODE_SILENT);
+			mContext.startActivityForResult(intent, DRIVE_MODE_REQUEST);
+		}
+	}
 }

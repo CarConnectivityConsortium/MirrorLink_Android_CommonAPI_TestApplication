@@ -28,6 +28,7 @@
  */
 package com.carconnectivity.testapp.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.media.AudioManager;
 import android.os.Bundle;
@@ -36,11 +37,11 @@ import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.carconnectivity.testapp.BaseActivity;
+import com.carconnectivity.testapp.ApplicationContext;
 import com.carconnectivity.testapp.R;
 import com.mirrorlink.android.commonapi.IDeviceStatusListener;
 
-public class MirrorLinkDriveModeScreen extends BaseActivity {
+public class MirrorLinkDriveModeScreen extends Activity {
 
 	private static String TAG = MirrorLinkDriveModeScreen.class.getCanonicalName();
 	
@@ -66,7 +67,7 @@ public class MirrorLinkDriveModeScreen extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		Log.v("BaseActivity", "onCreate");
+		Log.v(TAG, "onCreate");
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -74,7 +75,7 @@ public class MirrorLinkDriveModeScreen extends BaseActivity {
 
 		setContentView(R.layout.drive_mode_screen);
 
-		getMirrorLinkApplicationContext().registerDeviceStatusManager(this, mDeviceStatusListener);
+		((ApplicationContext)getApplicationContext()).registerDeviceStatusManager(this, mDeviceStatusListener);
 	}
 	
 	@Override
@@ -93,7 +94,7 @@ public class MirrorLinkDriveModeScreen extends BaseActivity {
 	@Override
 	protected void onDestroy() {
 
-		getMirrorLinkApplicationContext().unregisterDeviceStatusManager(this, mDeviceStatusListener);
+		((ApplicationContext)getApplicationContext()).unregisterDeviceStatusManager(this, mDeviceStatusListener);
 
 		super.onDestroy();
 	}

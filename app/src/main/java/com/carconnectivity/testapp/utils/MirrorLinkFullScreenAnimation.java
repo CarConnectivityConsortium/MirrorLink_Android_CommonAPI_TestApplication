@@ -39,9 +39,10 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.carconnectivity.testapp.BaseActivity;
 import com.carconnectivity.testapp.R;
 
-public class MirrorLinkFullScreenAnimation extends Activity {
+public class MirrorLinkFullScreenAnimation extends BaseActivity {
 
 	@Override 
 	protected void onCreate(Bundle savedInstanceState) {

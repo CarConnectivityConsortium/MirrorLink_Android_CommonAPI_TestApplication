@@ -42,7 +42,7 @@
          <appCategory>0xFFFEFFFF</appCategory>
       </appInfo>
       <displayInfo>
-         <contentCategory>0x00000020</contentCategory>
+         <contentCategory>0x00010020</contentCategory>
          <orientation>both</orientation>
       </displayInfo>
       <audioInfo>
@@ -61,7 +61,7 @@
          <nonRestricted></nonRestricted>
          <serviceList>
             <service>com.mirrorlink.location</service>
-            <service>com.mirrorlink.gps</service>
+            <service>com.mirrorlink.GPS</service>
          </serviceList>
       </entity>
       <properties />

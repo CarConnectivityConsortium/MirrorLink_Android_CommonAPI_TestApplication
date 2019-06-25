@@ -35,6 +35,8 @@ import java.util.List;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.RemoteException;
@@ -181,8 +183,30 @@ public class MirrorLinkNotificationSend extends BaseActivity {
 			@Override
 			public void onClick(View v) {
 				AlertDialog.Builder builder = new AlertDialog.Builder(MirrorLinkNotificationSend.this);
+
+				// Retrieve the URI of real icons by using the icons of the
+				// applications installed on the device.
+				final List<CharSequence> iconUris = new ArrayList<CharSequence>();
+				final PackageManager packageManager = getPackageManager();
+				final List<ApplicationInfo> appList = packageManager.getInstalledApplications(
+						PackageManager.GET_META_DATA);
+				for (final ApplicationInfo appInfo : appList) {
+					if (appInfo.icon != 0) {
+						final Uri uri = Uri.parse(
+								"android.resource://" + appInfo.packageName + "/" + appInfo.icon);
+						iconUris.add(uri.toString());
+					}
+
+					// Just pick the first 5 icons.
+					if (iconUris.size() == 5) {
+						break;
+					}
+				}
+				// Give always the option to don't include an icon.
+				iconUris.add("none");
 				
-				final CharSequence[] items = { "http://Icon1", "http://Icon2", "http://Icon3", "http://Icon4" };
+				final CharSequence[] items = iconUris.toArray(
+						new CharSequence[0]);
 
 				builder.setTitle("Select icon");
 			    builder.setSingleChoiceItems(items, 1,

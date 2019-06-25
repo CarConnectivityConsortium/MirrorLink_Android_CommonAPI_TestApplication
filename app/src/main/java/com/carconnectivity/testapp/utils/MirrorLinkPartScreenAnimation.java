@@ -46,9 +46,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.carconnectivity.testapp.BaseActivity;
 import com.carconnectivity.testapp.R;
 
-public class MirrorLinkPartScreenAnimation extends Activity implements OnClickListener{
+public class MirrorLinkPartScreenAnimation extends BaseActivity implements OnClickListener{
 	RelativeLayout mLayout = null; 
 	ImageView mPartialBackgroundImage = null;
 	
