@@ -61,7 +61,7 @@
          <nonRestricted></nonRestricted>
          <serviceList>
             <service>com.mirrorlink.location</service>
-            <service>com.mirrorlink.gps</service>
+            <service>com.mirrorlink.GPS</service>
          </serviceList>
       </entity>
       <properties />
