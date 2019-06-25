@@ -45,7 +45,8 @@
         android:name="ApplicationContext">
         <activity
             android:name="com.carconnectivity.testapp.MainActivity"
-            android:label="${appName}" >
+			android:launchMode="singleTop"
+			android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -60,36 +61,36 @@
             </intent-filter>
         </activity>
         
-		<activity android:name="com.carconnectivity.testapp.Versions" android:label="Versions" />
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkClientInformation"  android:label="MirrorLink Client Information" />
-		<activity android:name="com.carconnectivity.testapp.ApplicationCertificateStatus" android:label="Application Certificate Status" />
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkConnection" android:label="MirrorLink Connection Status" />
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkAudioConnection" android:label="MirrorLink Audio Connection Status" />
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkRemoteDisplayConnection" android:label="MirrorLink Remote Display Connection Status" />
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkClientDisplayInformation" android:label="MirrorLink Client Display Information Status" />
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkPixelFormat" android:label="MirrorLink Client Pixel Format" />
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkEventConfigurationInformation" android:label="MirrorLink Event"/>
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkEventMappingInformation" android:label="MirrorLink Event Mapping"/>                
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkContextInformation" android:label="MirrorLink Context Information"/>        
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkDriveModeStatus" android:label="MirrorLink Drive Mode Status"/>     
-		<activity android:name="com.carconnectivity.testapp.utils.MirrorLinkDriveModeScreen" android:label="MirrorLink Drive Mode Status"/>     
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkApiModules" android:label="Mirror Link API Modules"/>     
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkVrtKeyboard" android:label="MirrorLink Server Virtual Keyboard Support"/>
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkNightModeStatus" android:label="Mirror Link Night Mode"/>     
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkMicrophoneStatus" android:label="Mirror Link Microphone"/>    
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkDataServices" android:label="Mirror Link Data Services"/>    
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkDataServicesDetails" android:label="Mirror Link Data Services"/>    
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkDataServicesLocationObject" android:label="Mirror Link Location Object"/>    
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkNotification"  android:label="Mirror Link Notification"/>    
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkNotificationSend" android:label="Mirror Link Send Notification"/>    
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkNotificationConfiguration" android:label="Mirror Link Notification Configuration"/>    
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkOrientation" android:label="Mirror Link Orientation"/>    
-		<activity android:name="com.carconnectivity.testapp.MirrorLinkAudioContextInformation" android:label="Mirror Link Audio Context"/>     
-		<activity android:name="com.carconnectivity.testapp.utils.MirrorLinkFullScreenAnimation" android:label="Full Screen Animation"/>    
-		<activity android:name="com.carconnectivity.testapp.utils.MirrorLinkPartScreenAnimation" android:label="Part Screen Animation"/>  
-		<activity android:name="com.carconnectivity.testapp.utils.KnobScreen" android:label="Knob events visualiser"/>  
-		<activity android:name="com.carconnectivity.testapp.utils.MultimediaKeysScreen" android:label="Multimedia/Function Keys Screen"/>  
-		<activity android:name="com.carconnectivity.testapp.utils.AudioEcho" android:label="Audio Echo"/>  
-		<activity android:name="com.carconnectivity.testapp.utils.AudioChannels" android:label="Audio Channels"/>  
+		<activity android:name="com.carconnectivity.testapp.Versions" android:launchMode="singleTop" android:label="Versions" android:parentActivityName=".MainActivity" />
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkClientInformation"  android:launchMode="singleTop" android:label="MirrorLink Client Information" android:parentActivityName=".MainActivity" />
+		<activity android:name="com.carconnectivity.testapp.ApplicationCertificateStatus" android:launchMode="singleTop" android:label="Application Certificate Status" android:parentActivityName=".MainActivity" />
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkConnection" android:launchMode="singleTop" android:label="MirrorLink Connection Status" android:parentActivityName=".MainActivity" />
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkAudioConnection" android:launchMode="singleTop" android:label="MirrorLink Audio Connection Status" android:parentActivityName=".MainActivity" />
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkRemoteDisplayConnection" android:launchMode="singleTop" android:label="MirrorLink Remote Display Connection Status" android:parentActivityName=".MainActivity" />
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkClientDisplayInformation" android:launchMode="singleTop" android:label="MirrorLink Client Display Information Status" android:parentActivityName=".MainActivity" />
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkPixelFormat" android:launchMode="singleTop" android:label="MirrorLink Client Pixel Format" android:parentActivityName=".MainActivity" />
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkEventConfigurationInformation" android:launchMode="singleTop" android:label="MirrorLink Event" android:parentActivityName=".MainActivity" />
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkEventMappingInformation" android:launchMode="singleTop" android:label="MirrorLink Event Mapping" android:parentActivityName=".MainActivity" />                
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkContextInformation" android:launchMode="singleTop" android:label="MirrorLink Context Information" android:parentActivityName=".MainActivity" />        
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkDriveModeStatus" android:launchMode="singleTop" android:label="MirrorLink Drive Mode Status" android:parentActivityName=".MainActivity" />     
+		<activity android:name="com.carconnectivity.testapp.utils.MirrorLinkDriveModeScreen" android:launchMode="singleTop" android:label="MirrorLink Drive Mode Status" />     
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkApiModules" android:launchMode="singleTop" android:label="MirrorLink API Modules" android:parentActivityName=".MainActivity" />     
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkVrtKeyboard" android:launchMode="singleTop" android:label="MirrorLink Server Virtual Keyboard Support" android:parentActivityName=".MainActivity" />
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkNightModeStatus" android:launchMode="singleTop" android:label="MirrorLink Night Mode" android:parentActivityName=".MainActivity" />     
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkMicrophoneStatus" android:launchMode="singleTop" android:label="MirrorLink Microphone" android:parentActivityName=".MainActivity" />    
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkDataServices" android:launchMode="singleTop" android:label="MirrorLink Data Services" android:parentActivityName=".MainActivity" />    
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkDataServicesDetails" android:launchMode="singleTop" android:label="MirrorLink Data Services" android:parentActivityName=".MainActivity" />    
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkDataServicesLocationObject" android:launchMode="singleTop" android:label="MirrorLink Location Object" android:parentActivityName=".MainActivity" />    
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkNotification"  android:launchMode="singleTop" android:label="MirrorLink Notification" android:parentActivityName=".MainActivity" />    
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkNotificationSend" android:launchMode="singleTop" android:label="MirrorLink Send Notification" android:parentActivityName=".MainActivity" />    
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkNotificationConfiguration" android:launchMode="singleTop" android:label="MirrorLink Notification Configuration" android:parentActivityName=".MainActivity" />    
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkOrientation" android:launchMode="singleTop" android:label="MirrorLink Orientation" android:parentActivityName=".MainActivity" />    
+		<activity android:name="com.carconnectivity.testapp.MirrorLinkAudioContextInformation" android:launchMode="singleTop" android:label="MirrorLink Audio Context" android:parentActivityName=".MainActivity" />     
+		<activity android:name="com.carconnectivity.testapp.utils.MirrorLinkFullScreenAnimation" android:launchMode="singleTop" android:label="Full Screen Animation" android:parentActivityName=".MainActivity" />    
+		<activity android:name="com.carconnectivity.testapp.utils.MirrorLinkPartScreenAnimation" android:launchMode="singleTop" android:label="Part Screen Animation" android:parentActivityName=".MainActivity" />  
+		<activity android:name="com.carconnectivity.testapp.utils.KnobScreen" android:launchMode="singleTop" android:label="Knob events visualiser" android:parentActivityName=".MainActivity" />  
+		<activity android:name="com.carconnectivity.testapp.utils.MultimediaKeysScreen" android:launchMode="singleTop" android:label="Multimedia/Function Keys Screen" android:parentActivityName=".MainActivity" />  
+		<activity android:name="com.carconnectivity.testapp.utils.AudioEcho" android:launchMode="singleTop" android:label="Audio Echo" android:parentActivityName=".MainActivity" />  
+		<activity android:name="com.carconnectivity.testapp.utils.AudioChannels" android:launchMode="singleTop" android:label="Audio Channels" android:parentActivityName=".MainActivity" />  
 		    </application>
 </manifest>

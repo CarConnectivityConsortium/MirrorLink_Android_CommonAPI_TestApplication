@@ -29,24 +29,23 @@
 package com.carconnectivity.testapp.utils;
 
 import android.app.Activity;
-import android.content.Context;
-import android.media.AudioManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
 
 import com.carconnectivity.testapp.ApplicationContext;
 import com.carconnectivity.testapp.R;
 import com.mirrorlink.android.commonapi.IDeviceStatusListener;
 
-public class MirrorLinkDriveModeScreen extends Activity {
+public class MirrorLinkDriveModeScreen extends Activity implements View.OnClickListener {
 
 	private static String TAG = MirrorLinkDriveModeScreen.class.getCanonicalName();
-	
-	private int mLastRingerMode;
-	
+
 	IDeviceStatusListener mDeviceStatusListener = new IDeviceStatusListener.Stub() {
 		@Override
 		public void onNightModeChanged(boolean nightMode) throws RemoteException {
@@ -75,21 +74,11 @@ public class MirrorLinkDriveModeScreen extends Activity {
 
 		setContentView(R.layout.drive_mode_screen);
 
+		final RelativeLayout layout = (RelativeLayout) findViewById(R.id.drive_mode_screen);
+		layout.setOnClickListener(this);
+
 		((ApplicationContext)getApplicationContext()).registerDeviceStatusManager(this, mDeviceStatusListener);
 	}
-	
-	@Override
-	protected void onResume() {
-		super.onResume();
-	}
-	
-	@Override
-	protected void onPause() {
-		super.onPause();
-		AudioManager am = (AudioManager)getBaseContext().getSystemService(Context.AUDIO_SERVICE);
-		am.setRingerMode(mLastRingerMode);
-	}
-
 
 	@Override
 	protected void onDestroy() {
@@ -100,8 +89,16 @@ public class MirrorLinkDriveModeScreen extends Activity {
 	}
 
 	@Override
+	public void onClick(final View view) {
+		// Go back to Home Screen
+		final Intent startMain = new Intent(Intent.ACTION_MAIN);
+		startMain.addCategory(Intent.CATEGORY_HOME);
+		startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION);
+		startActivity(startMain);
+	}
+
+	@Override
 	public void onBackPressed() {
 
 	}
-
 }

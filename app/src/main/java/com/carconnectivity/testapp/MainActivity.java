@@ -29,10 +29,12 @@
 package com.carconnectivity.testapp;
 
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.mirrorlink.android.commonapi.Defs;
 
@@ -57,9 +59,46 @@ public class MainActivity extends Activity {
 			}
 		}
 
+		final ActionBar actionBar = getActionBar();
+		if (actionBar != null) {
+			actionBar.setDisplayHomeAsUpEnabled(true);
+
+			final View homeBtn = findViewById(android.R.id.home);
+
+			if (homeBtn != null) {
+				final View.OnClickListener clickListener = new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						// Go back to Home Screen
+						final Intent startMain = new Intent(Intent.ACTION_MAIN);
+						startMain.addCategory(Intent.CATEGORY_HOME);
+						startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION);
+						startActivity(startMain);
+					}
+				};
+
+				MenuFragment.installOnClickListenerToHomeBtn(
+						homeBtn,
+						clickListener);
+			}
+		}
+
 	    getFragmentManager().beginTransaction().replace(android.R.id.content, new MenuFragment()).commit();
 	}
-	
+
+	@Override
+	protected void onNewIntent(final Intent intent) {
+		Log.v(LOG_TAG, "onNewIntent");
+
+		if (intent != null) {
+			final String action = intent.getAction();
+			if (Defs.Intents.TERMINATE_MIRRORLINK_APP.equals(action)) {
+				finishAffinity();
+				return;
+			}
+		}
+		super.onNewIntent(intent);
+	}
 	
 	@Override
 	protected void onResume()
@@ -67,6 +106,7 @@ public class MainActivity extends Activity {
 		super.onResume();
 		driverMode = new DriverModeScrewdriver(this);
 	}
+
 	@Override
 	protected void onPause()
 	{
@@ -75,13 +115,9 @@ public class MainActivity extends Activity {
 		driverMode = null;
 	}
 
-	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (driverMode != null)
 			driverMode.onResult(requestCode, resultCode);
-	}	
-	
-
-
+	}
 }

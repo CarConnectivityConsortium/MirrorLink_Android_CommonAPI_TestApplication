@@ -91,14 +91,17 @@ public class BaseActivity extends Activity {
 	}
 	@Override 
 	protected void onCreate(Bundle savedInstanceState) {
-		Log.v("BaseActivity", "onCreate");
+		Log.v(LOG_TAG, "onCreate");
 		super.onCreate(savedInstanceState);
 		
 		createContentView();
 		
 		ActionBar actionBar = getActionBar();
-		if (actionBar!=null)
+		if (actionBar!=null) {
 			actionBar.setIcon(R.drawable.ic_action_disconnected);
+			actionBar.setDisplayHomeAsUpEnabled(true);
+			actionBar.setDisplayShowHomeEnabled(true);
+		}
 		
 	}
 	@Override
@@ -151,6 +154,8 @@ public class BaseActivity extends Activity {
         }
         updateValues();
 	}
+
+	@Override
 	protected void onPause()
 	{
 		driveMode.dispose();
